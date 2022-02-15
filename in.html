@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .tab {
+        background-color: smoke;
+        width: 50vh;
+        height: 10vh;
+        margin: 0 auto;
+        font-size: 3em;
+        font-weight: bold;
+        text-align: center;
+        outline: none;
+      }
+
+      td {
+        width: 100px;
+        height: 100px;
+        background-color: darkcyan;
+      }
+      #message {
+        border-radius: 2rem;
+        color: cornsilk;
+        /* background-color: cyan; */
+        width: 50vh;
+        height: 10vh;
+        margin: 12vh;
+        outline: none;
+        font-size: 2rem;
+        font-weight: bold;
+        display: flex;
+      }
+      #message:hover {
+        color: black;
+
+        /* background-color: darkmagenta; */
+      }
+
+      body {
+        background: url("./download (9).jpeg") no-repeat center center/cover;
+        /* overflow: hidden; */
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- <button onclick="au(event)" id="in">yes</button> -->
+    <div id="message"></div>
+
+    <table border="0" class="tab">
+      <tr>
+        <td id="1" onclick="dis(event)"></td>
+        <td id="2" onclick="dis(event)"></td>
+        <td id="3" onclick="dis(event)"></td>
+      </tr>
+
+      <tr>
+        <td id="4" onclick="dis(event)"></td>
+        <td id="5" onclick="dis(event)"></td>
+        <td id="6" onclick="dis(event)"></td>
+      </tr>
+
+      <tr>
+        <td id="7" onclick="dis(event)"></td>
+        <td id="8" onclick="dis(event)"></td>
+        <td id="9" onclick="dis(event)"></td>
+      </tr>
+    </table>
+    <!-- <center> <button onclick="me()" id="message">draw</button> -->
+    <!-- </center> -->
+
+    <script>
+      var turn = 1;
+      var score = 0;
+      var xwon;
+      var owon;
+
+      function dis(event) {
+        if (turn === 1) {
+          event.target.innerHTML = "X";
+          turn = 2;
+        } else if (turn === 2) {
+          event.target.innerHTML = "O";
+          turn = 1;
+        }
+
+        var xwon =
+          (document.getElementById("1").innerHTML === "X" &&
+            document.getElementById("2").innerHTML === "X" &&
+            document.getElementById("3").innerHTML === "X") ||
+          (document.getElementById("1").innerHTML === "X" &&
+            document.getElementById("5").innerHTML == "X" &&
+            document.getElementById("9").innerHTML == "X") ||
+          (document.getElementById("2").innerHTML == "X" &&
+            document.getElementById("5").innerHTML === "X" &&
+            document.getElementById("8").innerHTML === "X") ||
+          (document.getElementById("1").innerHTML === "X" &&
+            document.getElementById("4").innerHTML === "X" &&
+            document.getElementById("7").innerHTML === "X") ||
+          (document.getElementById("3").innerHTML === "X" &&
+            document.getElementById("6").innerHTML === "X" &&
+            document.getElementById("9").innerHTML === "X") ||
+          (document.getElementById("4").innerHTML === "X" &&
+            document.getElementById("5").innerHTML === "X" &&
+            document.getElementById("6").innerHTML === "X") ||
+          (document.getElementById("7").innerHTML === "X" &&
+            document.getElementById("8").innerHTML === "X" &&
+            document.getElementById("9").innerHTML === "X") ||
+          (document.getElementById("3").innerHTML === "X" &&
+            document.getElementById("5").innerHTML === "X" &&                                          
+            document.getElementById("7").innerHTML === "X");
+
+        if (xwon === true) {
+          score += 1;
+          alert("you lose guard you've been tricked " + score + " times");
+          turn = "";
+          document.getElementById("message").innerHTML =
+            "you've been hacked certain amount has been withdrawn from your bank  = "  + score +
+            "<br>" +
+            "<button onclick=clr()>reset</button>";
+        }
+
+        var owon =
+          (document.getElementById("1").innerHTML === "O" &&
+            document.getElementById("2").innerHTML === "O" &&
+            document.getElementById("3").innerHTML === "O") ||
+          (document.getElementById("1").innerHTML === "O" &&
+            document.getElementById("5").innerHTML === "O" &&
+            document.getElementById("9").innerHTML === "O") ||
+          (document.getElementById("2").innerHTML === "O" &&
+            document.getElementById("5").innerHTML === "O" &&
+            document.getElementById("8").innerHTML === "O") ||
+          (document.getElementById("1").innerHTML === "O" &&
+            document.getElementById("4").innerHTML === "O" &&
+            document.getElementById("7").innerHTML === "O") ||
+          (document.getElementById("3").innerHTML === "O" &&
+            document.getElementById("6").innerHTML === "O" &&
+            document.getElementById("9").innerHTML === "O") ||
+          (document.getElementById("4").innerHTML === "O" &&
+            document.getElementById("5").innerHTML === "O" &&
+            document.getElementById("6").innerHTML === "O") ||
+          (document.getElementById("7").innerHTML === "O" &&
+            document.getElementById("8").innerHTML === "O" &&
+            document.getElementById("9").innerHTML === "O") ||
+          (document.getElementById("3").innerHTML === "O" &&
+            document.getElementById("5").innerHTML === "O" &&
+            document.getElementById("7").innerHTML === "O");
+
+        if (owon === true) {
+          score = 1;
+          alert("you have succesfully saved yourself from beind defrauded= " + score);
+          turn = "";
+
+          document.getElementById("message").innerHTML =
+            "welldone you are saved now" +
+            "<br>" +
+            "<button onclick=clr()>reset</button>";
+        }
+      }
+      
+      if (x <= 5 && 0 <= 4) {
+        alert("Draw! No winner");
+        turn = "";
+      }
+
+      function clr() {
+        // setInterval(clr,1000) ;
+        window.location.reload();
+      }
+
+      function me() {
+        // setInterval(clr,1000) ;
+        window.location.reload();
+      }
+      function me() {
+        if (turn <= 9) {
+          document.getElementById("message").innerHTML = draw;
+        }
+      }
+    </script>
+  </body>
+</html>
